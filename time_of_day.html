@@ -61,7 +61,7 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'fatal_crashes';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'time_of_day';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -216,7 +216,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/fatal_crashes.ipynb" target="_blank"
+      <li><a href="_sources/time_of_day.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -368,15 +368,12 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">fatal_crashes</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Hour of Day&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Total&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Total Fatal Crashes By Hour of Day&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Text(0.5, 0, &#39;Hour of Day&#39;),
- Text(0, 0.5, &#39;Total&#39;),
- Text(0.5, 1.0, &#39;Total Fatal Crashes By Hour of Day&#39;)]
-</pre></div>
-</div>
 <img alt="_images/c6e70dbade880cb248c0b542963cc9c09439d57c768810a845d21ccfe9b4e4a0.png" src="_images/c6e70dbade880cb248c0b542963cc9c09439d57c768810a845d21ccfe9b4e4a0.png" />
 </div>
 </div>
@@ -385,7 +382,9 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">injury_crashes</span> <span class="o">=</span> <span class="n">time_data</span><span class="p">[</span><span class="s1">&#39;Table 2C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
-<span class="n">injury_crashes</span> <span class="o">=</span> <span class="n">injury_crashes</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A.M. Total&#39;</span><span class="p">,</span> <span class="s1">&#39;P.M. Total&#39;</span><span class="p">,</span> <span class="s1">&#39;Unknown hour&#39;</span><span class="p">,</span> <span class="s1">&#39;Total&#39;</span><span class="p">])</span>
+<span class="n">injury_crashes</span> <span class="o">=</span> <span class="n">injury_crashes</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span>
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A.M. Total&#39;</span><span class="p">,</span> <span class="s1">&#39;P.M. Total&#39;</span><span class="p">,</span> <span class="s1">&#39;Unknown hour&#39;</span><span class="p">,</span> <span class="s1">&#39;Total&#39;</span><span class="p">],</span>
+    <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;Total&quot;</span><span class="p">)</span>
 <span class="n">injury_crashes</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
 <span class="n">injury_crashes</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -417,7 +416,6 @@ document.write(`
       <th>Friday</th>
       <th>Saturday</th>
       <th>Sunday</th>
-      <th>Total</th>
     </tr>
   </thead>
   <tbody>
@@ -430,7 +428,6 @@ document.write(`
       <td>380.0</td>
       <td>639.0</td>
       <td>775.0</td>
-      <td>3311.0</td>
     </tr>
     <tr>
       <th>1</th>
@@ -441,7 +438,6 @@ document.write(`
       <td>303.0</td>
       <td>680.0</td>
       <td>789.0</td>
-      <td>2956.0</td>
     </tr>
     <tr>
       <th>2</th>
@@ -452,7 +448,6 @@ document.write(`
       <td>346.0</td>
       <td>729.0</td>
       <td>778.0</td>
-      <td>2946.0</td>
     </tr>
     <tr>
       <th>3</th>
@@ -463,7 +458,6 @@ document.write(`
       <td>250.0</td>
       <td>443.0</td>
       <td>529.0</td>
-      <td>2090.0</td>
     </tr>
     <tr>
       <th>4</th>
@@ -474,7 +468,6 @@ document.write(`
       <td>271.0</td>
       <td>383.0</td>
       <td>388.0</td>
-      <td>2162.0</td>
     </tr>
   </tbody>
 </table>
@@ -492,9 +485,41 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/728a6cd3f61b77736013f575e69ba6e71eb8aab7c3b45aa51dc5e56d20edde25.png" src="_images/728a6cd3f61b77736013f575e69ba6e71eb8aab7c3b45aa51dc5e56d20edde25.png" />
+<img alt="_images/be5bfdb6df54f565c9dd0b996538d513df9705e97b6ac3b0ca2f5ba2f0bbad51.png" src="_images/be5bfdb6df54f565c9dd0b996538d513df9705e97b6ac3b0ca2f5ba2f0bbad51.png" />
 </div>
 </div>
+<p>We see that weekdays have very similar patterns, with peaks at major commute times in the morning at around 7-8 AM, and in the afternoon around 5 PM, which is also just the peak commute times due to people’s 9-5 jobs. However, we notice that Mondays and Fridays seem to have lower number of injury crashes in the morning, perhaps because there is less traffic closer to the weekend. Friday also seems to have more crashes in the afternoon, which could be due to drivers’ fatigue or rush to get home early for the weekend.</p>
+<p>The weekend injury crashes pattern also seems to reflect the average person’s travel patterns. It seems most people go out later and return home later on weekends, but on average there seem to be fewer crashes since there are fewer cars on the road.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">injury_totals</span> <span class="o">=</span> <span class="n">time_data</span><span class="p">[</span><span class="s1">&#39;Table 2C&#39;</span><span class="p">][</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">fatal_totals</span> <span class="o">=</span> <span class="n">time_data</span><span class="p">[</span><span class="s2">&quot;Table 2B&quot;</span><span class="p">][</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="n">injury_totals</span> <span class="o">=</span> <span class="n">injury_totals</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span>
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A.M. Total&#39;</span><span class="p">,</span> <span class="s1">&#39;P.M. Total&#39;</span><span class="p">,</span> <span class="s1">&#39;Unknown hour&#39;</span><span class="p">,</span> <span class="s1">&#39;Total&#39;</span><span class="p">])</span>
+<span class="n">fatal_totals</span> <span class="o">=</span> <span class="n">fatal_totals</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span>
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A.M. Total&#39;</span><span class="p">,</span> <span class="s1">&#39;P.M. Total&#39;</span><span class="p">,</span> <span class="s1">&#39;Unknown hour&#39;</span><span class="p">,</span> <span class="s1">&#39;Total&#39;</span><span class="p">])</span>
+
+<span class="n">injury_prop</span> <span class="o">=</span> <span class="n">injury_totals</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">injury_totals</span><span class="p">)</span>
+<span class="n">fatal_prop</span> <span class="o">=</span> <span class="n">fatal_totals</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">fatal_totals</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">24</span><span class="p">),</span> <span class="n">injury_prop</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;injury crash proportion&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">24</span><span class="p">),</span> <span class="n">fatal_prop</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;fatal crash proportion&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;hour&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;proportion of daily crashes&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribution of Injury and Fatal Crashes by Hour of Day&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/995f167580b94dc04ebd8448079254a14f72e0e4ba8f60280e7fdf9221459ea5.png" src="_images/995f167580b94dc04ebd8448079254a14f72e0e4ba8f60280e7fdf9221459ea5.png" />
+</div>
+</div>
+<p>Interestingly, we see that fatal crashes and injury crashes do not have peaks at the same time. Injury crashes seem to occur around peak commute times, but fatal crashes are slightly offset from these peaks (earlier in the morning, and later in the afternoon). This is likely because heavy traffic jams and slow speeds make it more unlikely that a crash would result in a fatality.</p>
 
     <script type="text/x-thebe-config">
     {
