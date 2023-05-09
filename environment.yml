@@ -1,0 +1,13 @@
+name: traffic-collisions
+
+dependencies:
+  - python=3.8
+  - numpy=1.24
+  - pandas=1.5
+  - matplotlib=3.5
+  - ipython=8.2
+  - ipykernel=5.5
+  - decorator=5.1
+  - scipy=1.8
+  - seaborn
+  - openpyxl
