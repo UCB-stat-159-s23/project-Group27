@@ -314,6 +314,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation">Data Preparation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seasonality-analysis-for-day-of-month">Seasonality Analysis for Day of Month</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seasonality-analysis-by-month">Seasonality Analysis by Month</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusions">Conclusions</a></li>
 </ul>
             </nav>
         </div>
@@ -1013,6 +1014,46 @@ document.write(`
 <section id="seasonality-analysis-by-month">
 <h2>Seasonality Analysis by Month<a class="headerlink" href="#seasonality-analysis-by-month" title="Permalink to this heading">#</a></h2>
 <p>We now examine whether or not there is a difference based on the month of the year.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_months</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Month of Year&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Average Number of Crashes&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Average Number of Crashes per Month of Year&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">mean_months</span><span class="o">.</span><span class="n">index</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">mean_months</span><span class="o">.</span><span class="n">values</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;BarContainer object of 12 artists&gt;
+</pre></div>
+</div>
+<img alt="_images/7cf1b04dd77f6e302cc397e0a77da402c09bcd2392c8a25cac2d07739b9dd33d.png" src="_images/7cf1b04dd77f6e302cc397e0a77da402c09bcd2392c8a25cac2d07739b9dd33d.png" />
+</div>
+</div>
+<p>Again, we will run the Kruskal-Wallis test for differences of means since we are operating under the same assumptions as previously outlined.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># determining if the difference in means is significant</span>
+
+<span class="n">st</span><span class="o">.</span><span class="n">kruskal</span><span class="p">(</span><span class="n">mean_crashes</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mean_crashes</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">mean_crashes</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">mean_crashes</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> 
+           <span class="n">mean_crashes</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">mean_crashes</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">mean_crashes</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">mean_crashes</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> 
+           <span class="n">mean_crashes</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">mean_crashes</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">mean_crashes</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">mean_crashes</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">11</span><span class="p">])</span>  
+<span class="c1"># need to separate each mean for kruskal test to work</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KruskalResult(statistic=11.000000000000005, pvalue=0.4432632784264645)
+</pre></div>
+</div>
+</div>
+</div>
+<p>With a p-value of 0.443, we fail to reject our null hypothesis, which means that we believe that our means are the same, and that the month of year doesn’t change the number of car crashes.</p>
+</section>
+<section id="conclusions">
+<h2>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this heading">#</a></h2>
+<p>We showed there is no seasonality trend for day of month and month of year when it comes to car crashes. To see any type of seasonality trend, we would likely need to observe more granular data (perhaps day of week or time of day).</p>
 </section>
 </section>
 
@@ -1069,6 +1110,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation">Data Preparation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seasonality-analysis-for-day-of-month">Seasonality Analysis for Day of Month</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seasonality-analysis-by-month">Seasonality Analysis by Month</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusions">Conclusions</a></li>
 </ul>
   </nav></div>
 
