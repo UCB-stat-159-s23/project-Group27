@@ -519,26 +519,21 @@ document.write(`
 <h1>Comparing Daily Trends<a class="headerlink" href="#comparing-daily-trends" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pval</span><span class="p">,</span> <span class="n">contribs</span> <span class="o">=</span> <span class="n">chisquare</span><span class="p">(</span><span class="n">injury_crashes</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Saturday&#39;</span><span class="p">,</span> <span class="s1">&#39;Sunday&#39;</span><span class="p">],</span> <span class="n">plot_expected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pval</span><span class="p">,</span> <span class="n">contribs</span> <span class="o">=</span> <span class="n">time_of_day</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="n">injury_crashes</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Saturday&#39;</span><span class="p">,</span> <span class="s1">&#39;Sunday&#39;</span><span class="p">],</span> <span class="n">plot_expected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">pval</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">17</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">pval</span><span class="p">,</span> <span class="n">contribs</span> <span class="o">=</span> <span class="n">chisquare</span><span class="p">(</span><span class="n">injury_crashes</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Saturday&#39;</span><span class="p">,</span> <span class="s1">&#39;Sunday&#39;</span><span class="p">],</span> <span class="n">plot_expected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">pval</span>
-
-<span class="ne">NameError</span>: name &#39;chisquare&#39; is not defined
+<img alt="_images/2aaffc17b39bedb327926f796d80c95547db67c566c0ef76b3774a4517eafc66.png" src="_images/2aaffc17b39bedb327926f796d80c95547db67c566c0ef76b3774a4517eafc66.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.2545552084147115e-33
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pval</span><span class="p">,</span> <span class="n">contribs</span> <span class="o">=</span> <span class="n">chisquare</span><span class="p">(</span><span class="n">injury_crashes</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Tuesday&#39;</span><span class="p">,</span> <span class="s1">&#39;Wednesday&#39;</span><span class="p">],</span> <span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pval</span><span class="p">,</span> <span class="n">contribs</span> <span class="o">=</span> <span class="n">time_of_day</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="n">injury_crashes</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Tuesday&#39;</span><span class="p">,</span> <span class="s1">&#39;Wednesday&#39;</span><span class="p">],</span> <span class="kc">False</span><span class="p">)</span>
 <span class="n">pval</span>
 </pre></div>
 </div>
@@ -551,7 +546,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pval</span><span class="p">,</span> <span class="n">contribs</span> <span class="o">=</span> <span class="n">chisquare</span><span class="p">(</span><span class="n">injury_crashes</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Tuesday&#39;</span><span class="p">,</span> <span class="s1">&#39;Thursday&#39;</span><span class="p">],</span> <span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pval</span><span class="p">,</span> <span class="n">contribs</span> <span class="o">=</span> <span class="n">time_of_day</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="n">injury_crashes</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Tuesday&#39;</span><span class="p">,</span> <span class="s1">&#39;Thursday&#39;</span><span class="p">],</span> <span class="kc">False</span><span class="p">)</span>
 <span class="n">pval</span>
 </pre></div>
 </div>
@@ -564,7 +559,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pval</span><span class="p">,</span> <span class="n">contribs</span> <span class="o">=</span> <span class="n">chisquare</span><span class="p">(</span><span class="n">fatal_crashes</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Tuesday&#39;</span><span class="p">,</span> <span class="s1">&#39;Wednesday&#39;</span><span class="p">],</span> <span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pval</span><span class="p">,</span> <span class="n">contribs</span> <span class="o">=</span> <span class="n">time_of_day</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="n">fatal_crashes</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Tuesday&#39;</span><span class="p">,</span> <span class="s1">&#39;Wednesday&#39;</span><span class="p">],</span> <span class="kc">False</span><span class="p">)</span>
 <span class="n">pval</span>
 </pre></div>
 </div>
@@ -577,7 +572,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pval</span><span class="p">,</span> <span class="n">contribs</span> <span class="o">=</span> <span class="n">chisquare</span><span class="p">(</span><span class="n">fatal_crashes</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Saturday&#39;</span><span class="p">,</span> <span class="s1">&#39;Wednesday&#39;</span><span class="p">],</span> <span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pval</span><span class="p">,</span> <span class="n">contribs</span> <span class="o">=</span> <span class="n">time_of_day</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="n">fatal_crashes</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Saturday&#39;</span><span class="p">,</span> <span class="s1">&#39;Wednesday&#39;</span><span class="p">],</span> <span class="kc">False</span><span class="p">)</span>
 <span class="n">pval</span>
 </pre></div>
 </div>
