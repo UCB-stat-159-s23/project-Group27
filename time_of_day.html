@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>&lt;no title&gt; &#8212; Stat 159 Final Project</title>
+    <title>Comparing Daily Trends &#8212; Stat 159 Final Project</title>
   
   
   
@@ -285,9 +285,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -298,19 +296,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>Comparing Daily Trends</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -326,6 +316,7 @@ document.write(`
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">st</span>
 </pre></div>
 </div>
 </div>
@@ -520,6 +511,102 @@ document.write(`
 </div>
 </div>
 <p>Interestingly, we see that fatal crashes and injury crashes do not have peaks at the same time. Injury crashes seem to occur around peak commute times, but fatal crashes are slightly offset from these peaks (earlier in the morning, and later in the afternoon). This is likely because heavy traffic jams and slow speeds make it more unlikely that a crash would result in a fatality.</p>
+<section id="comparing-daily-trends">
+<h1>Comparing Daily Trends<a class="headerlink" href="#comparing-daily-trends" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">chisquare</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">cols</span><span class="p">,</span> <span class="n">plot_expected</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Compare distribution of crash numbers between columns. &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2"> is not a column in DataFrame (must be one of </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="si">}</span><span class="s2">)&quot;</span>
+    <span class="n">contingency</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">cols</span><span class="p">]</span>
+    <span class="n">chi2</span><span class="p">,</span> <span class="n">pval</span><span class="p">,</span> <span class="n">dof</span><span class="p">,</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">chi2_contingency</span><span class="p">(</span><span class="n">contingency</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">plot_expected</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span>
+                 <span class="n">label</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;Expected </span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">],</span>
+                 <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">contingency</span><span class="p">,</span>
+                 <span class="n">label</span><span class="o">=</span><span class="n">contingency</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="c1"># contributions table for each cell in the contingency table</span>
+    <span class="n">contributions</span> <span class="o">=</span> <span class="p">(</span><span class="n">contingency</span> <span class="o">-</span> <span class="n">expected</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">expected</span>
+    <span class="k">return</span> <span class="n">pval</span><span class="p">,</span> <span class="n">contributions</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pval</span><span class="p">,</span> <span class="n">contribs</span> <span class="o">=</span> <span class="n">chisquare</span><span class="p">(</span><span class="n">injury_crashes</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Saturday&#39;</span><span class="p">,</span> <span class="s1">&#39;Sunday&#39;</span><span class="p">],</span> <span class="n">plot_expected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">pval</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/2aaffc17b39bedb327926f796d80c95547db67c566c0ef76b3774a4517eafc66.png" src="_images/2aaffc17b39bedb327926f796d80c95547db67c566c0ef76b3774a4517eafc66.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.2545552084147115e-33
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pval</span><span class="p">,</span> <span class="n">contribs</span> <span class="o">=</span> <span class="n">chisquare</span><span class="p">(</span><span class="n">injury_crashes</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Tuesday&#39;</span><span class="p">,</span> <span class="s1">&#39;Wednesday&#39;</span><span class="p">],</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">pval</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.07740914208619751
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pval</span><span class="p">,</span> <span class="n">contribs</span> <span class="o">=</span> <span class="n">chisquare</span><span class="p">(</span><span class="n">injury_crashes</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Tuesday&#39;</span><span class="p">,</span> <span class="s1">&#39;Thursday&#39;</span><span class="p">],</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">pval</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.74202088431147e-08
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pval</span><span class="p">,</span> <span class="n">contribs</span> <span class="o">=</span> <span class="n">chisquare</span><span class="p">(</span><span class="n">fatal_crashes</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Tuesday&#39;</span><span class="p">,</span> <span class="s1">&#39;Wednesday&#39;</span><span class="p">],</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">pval</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.28681278335892824
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pval</span><span class="p">,</span> <span class="n">contribs</span> <span class="o">=</span> <span class="n">chisquare</span><span class="p">(</span><span class="n">fatal_crashes</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Saturday&#39;</span><span class="p">,</span> <span class="s1">&#39;Wednesday&#39;</span><span class="p">],</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">pval</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.013920716971079557
+</pre></div>
+</div>
+</div>
+</div>
+<p>todo: write summary of these results?</p>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -561,20 +648,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-  </nav></div>
-
-</div></div>
               
             
           </div>
