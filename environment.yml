@@ -10,4 +10,4 @@ dependencies:
   - decorator=5.1
   - scipy=1.8
   - seaborn
-  - openpyxl
+  - openpyxl=3.1.2
