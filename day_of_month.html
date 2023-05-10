@@ -343,6 +343,10 @@ document.write(`
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">st</span>
+
+<span class="c1"># our own package</span>
+
+<span class="kn">from</span> <span class="nn">analysis</span> <span class="kn">import</span> <span class="n">day_of_month</span>
 </pre></div>
 </div>
 </div>
@@ -954,7 +958,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f81db3c8580&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f81db076b00&gt;
 </pre></div>
 </div>
 <img alt="_images/b07e9f303045f7253d8c9b057a833c14db4574817fb8ce498ac423da049406eb.png" src="_images/b07e9f303045f7253d8c9b057a833c14db4574817fb8ce498ac423da049406eb.png" />
@@ -965,21 +969,6 @@ document.write(`
 <section id="seasonality-analysis-for-day-of-month">
 <h2>Seasonality Analysis for Day of Month<a class="headerlink" href="#seasonality-analysis-for-day-of-month" title="Permalink to this heading">#</a></h2>
 <p>We first examine the seasonality based on day of month.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_mean</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">by_row</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;Returns the mean of a dataframe across either rows or columns;</span>
-<span class="sd">        If by_row = True, return mean across rows, else across columns </span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">no_totals</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># get rid of totals</span>
-    <span class="k">if</span> <span class="n">by_row</span><span class="p">:</span> 
-        <span class="k">return</span> <span class="n">no_totals</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span> 
-        <span class="k">return</span> <span class="n">no_totals</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># showing the mean of the day of the month  </span>
