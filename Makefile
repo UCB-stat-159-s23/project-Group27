@@ -11,7 +11,9 @@ env :
     
 .PHONY : all
 all :
-	jupyterbook execute main.ipynb 
+	jupyterbook execute main.ipynb
+	jupyterbook execute day_of_month.ipynb
+	jupyterbook execute time_of_day.ipynb
 
 .PHONY : html
 html :
