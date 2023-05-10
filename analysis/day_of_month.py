@@ -1,4 +1,7 @@
-
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import scipy.stats as st
 
 def find_mean(df, by_row = True):
     '''Returns the mean of a dataframe across either rows or columns;
