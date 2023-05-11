@@ -10,6 +10,15 @@ Motor vehicle crashes are unfortunately quite prevalent in the state of Californ
 
 We utilized various statistical methods, including a Chi-Square test and Kruskal-Wallis test, to make our determinations. 
 
+# Data
+
+# Analysis
+
+- `main.ipynb` : main narrative notebook that summarizes all the results
+- `County_Analysis.ipynb` : notebook that explores (total) crashes based on each county in 2019
+- `day_of_month.ipynb` : notebook that explores total crashes based on the day of a month or month in a year
+- `time_of_day.ipynb` : notebook that explores fatal and injury crashes based on the time of day
+
 # Installation
 
 Run `make env` in your terminal/shell to set up the conda environment.
