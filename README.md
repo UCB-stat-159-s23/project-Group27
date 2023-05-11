@@ -31,3 +31,5 @@ Then use resulting `traffic-collisions` kernel to run all analysis notebooks.
 To test the `analysis functions`, navigate to the root directory and run `pytest`.
 
 # License
+
+This project is released under the terms of the MIT License.
