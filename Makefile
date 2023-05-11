@@ -11,7 +11,8 @@ env :
     
 .PHONY : all
 all :
-	jupyter execute *.ipynb --kernel_name=traffic-collisions
+	jupyter execute main.ipynb --kernel_name=traffic-collisions
+	jupyter execute analysis/*.ipynb --kernel_name=traffic-collisions
 
 .PHONY : html
 html :
