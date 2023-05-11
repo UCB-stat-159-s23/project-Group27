@@ -1,0 +1,716 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Comparing Daily Trends &#8212; Stat 159 Final Project</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'analysis/time_of_day';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../main.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Stat 159 Final Project</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../main.html">
+                    Analysis on California Motor Vehicle Traffic Collisions during 2019
+                </a>
+            </li>
+        </ul>
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/UCB-stat-159-s23/project-Group27/main?labpath=main.ipynb/v2/gh/UCB-stat-159-s23/project-Group27/gh-pages?urlpath=lab/tree/analysis/time_of_day.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/UCB-stat-159-s23/project-Group27" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/analysis/time_of_day.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Comparing Daily Trends</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># our own package</span>
+<span class="kn">from</span> <span class="nn">analysis</span> <span class="kn">import</span> <span class="n">time_of_day</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># relative path to data &amp; figures directory</span>
+<span class="kn">from</span> <span class="nn">paths</span> <span class="kn">import</span> <span class="n">DATA_PATH</span><span class="p">,</span> <span class="n">FIGURES_PATH</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">DATA_PATH</span><span class="si">}</span><span class="s2">/time_2019.xlsx&quot;</span><span class="p">,</span>
+                          <span class="n">header</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                          <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                          <span class="n">sheet_name</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">time_data</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;Table 2A&#39;, &#39;Table 2B&#39;, &#39;Table 2C&#39;, &#39; Table 2D&#39;, &#39; Table 2E&#39;, &#39;Parameters&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fatal_crashes</span> <span class="o">=</span> <span class="n">time_data</span><span class="p">[</span><span class="s2">&quot;Table 2B&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">fatal_crashes</span> <span class="o">=</span> <span class="n">fatal_crashes</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A.M. Total&#39;</span><span class="p">,</span> <span class="s1">&#39;P.M. Total&#39;</span><span class="p">,</span> <span class="s1">&#39;Unknown hour&#39;</span><span class="p">,</span> <span class="s1">&#39;Total&#39;</span><span class="p">])</span>
+<span class="n">fatal_crashes</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">fatal_crashes</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Hour of Day&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Total&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Total Fatal Crashes By Hour of Day&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">FIGURES_PATH</span><span class="si">}</span><span class="s2">/avg_fatal_crashes_by_hour.png&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/c6e70dbade880cb248c0b542963cc9c09439d57c768810a845d21ccfe9b4e4a0.png" src="../_images/c6e70dbade880cb248c0b542963cc9c09439d57c768810a845d21ccfe9b4e4a0.png" />
+</div>
+</div>
+<p>Looking at the graph above, we see that the peak number of fatal crashes is late at night near 9:00 PM, which could be the result of reckless driving during the night when people may have a harder time seeing.</p>
+<p>The lowest peak in the graph lies around 9:00 AM, which could be the result of traffic jams where people are unable to drive recklessly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">injury_crashes</span> <span class="o">=</span> <span class="n">time_data</span><span class="p">[</span><span class="s1">&#39;Table 2C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">injury_crashes</span> <span class="o">=</span> <span class="n">injury_crashes</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span>
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A.M. Total&#39;</span><span class="p">,</span> <span class="s1">&#39;P.M. Total&#39;</span><span class="p">,</span> <span class="s1">&#39;Unknown hour&#39;</span><span class="p">,</span> <span class="s1">&#39;Total&#39;</span><span class="p">],</span>
+    <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;Total&quot;</span><span class="p">)</span>
+<span class="n">injury_crashes</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
+<span class="n">injury_crashes</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Monday</th>
+      <th>Tuesday</th>
+      <th>Wednesday</th>
+      <th>Thursday</th>
+      <th>Friday</th>
+      <th>Saturday</th>
+      <th>Sunday</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>428.0</td>
+      <td>339.0</td>
+      <td>352.0</td>
+      <td>398.0</td>
+      <td>380.0</td>
+      <td>639.0</td>
+      <td>775.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>366.0</td>
+      <td>260.0</td>
+      <td>266.0</td>
+      <td>292.0</td>
+      <td>303.0</td>
+      <td>680.0</td>
+      <td>789.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>334.0</td>
+      <td>222.0</td>
+      <td>243.0</td>
+      <td>294.0</td>
+      <td>346.0</td>
+      <td>729.0</td>
+      <td>778.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>236.0</td>
+      <td>196.0</td>
+      <td>202.0</td>
+      <td>234.0</td>
+      <td>250.0</td>
+      <td>443.0</td>
+      <td>529.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>274.0</td>
+      <td>276.0</td>
+      <td>291.0</td>
+      <td>279.0</td>
+      <td>271.0</td>
+      <td>383.0</td>
+      <td>388.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">injury_crashes</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">injury_crashes</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;hour&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;number of injury crashes&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Injury Crashes by Hour of Day and Day of Week&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">FIGURES_PATH</span><span class="si">}</span><span class="s2">/injury_crashes_by_hour_and_day_of_week.png&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/be5bfdb6df54f565c9dd0b996538d513df9705e97b6ac3b0ca2f5ba2f0bbad51.png" src="../_images/be5bfdb6df54f565c9dd0b996538d513df9705e97b6ac3b0ca2f5ba2f0bbad51.png" />
+</div>
+</div>
+<p>We see that weekdays have very similar patterns, with peaks at major commute times in the morning at around 7-8 AM, and in the afternoon around 5 PM, which is also just the peak commute times due to people’s 9-5 jobs. However, we notice that Mondays and Fridays seem to have lower number of injury crashes in the morning, perhaps because there is less traffic closer to the weekend. Friday also seems to have more crashes in the afternoon, which could be due to drivers’ fatigue or rush to get home early for the weekend.</p>
+<p>The weekend injury crashes pattern also seems to reflect the average person’s travel patterns. It seems most people go out later and return home later on weekends, but on average there seem to be fewer crashes since there are fewer cars on the road.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">injury_totals</span> <span class="o">=</span> <span class="n">time_data</span><span class="p">[</span><span class="s1">&#39;Table 2C&#39;</span><span class="p">][</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">fatal_totals</span> <span class="o">=</span> <span class="n">time_data</span><span class="p">[</span><span class="s2">&quot;Table 2B&quot;</span><span class="p">][</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="n">injury_totals</span> <span class="o">=</span> <span class="n">injury_totals</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span>
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A.M. Total&#39;</span><span class="p">,</span> <span class="s1">&#39;P.M. Total&#39;</span><span class="p">,</span> <span class="s1">&#39;Unknown hour&#39;</span><span class="p">,</span> <span class="s1">&#39;Total&#39;</span><span class="p">])</span>
+<span class="n">fatal_totals</span> <span class="o">=</span> <span class="n">fatal_totals</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span>
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A.M. Total&#39;</span><span class="p">,</span> <span class="s1">&#39;P.M. Total&#39;</span><span class="p">,</span> <span class="s1">&#39;Unknown hour&#39;</span><span class="p">,</span> <span class="s1">&#39;Total&#39;</span><span class="p">])</span>
+
+<span class="n">injury_prop</span> <span class="o">=</span> <span class="n">injury_totals</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">injury_totals</span><span class="p">)</span>
+<span class="n">fatal_prop</span> <span class="o">=</span> <span class="n">fatal_totals</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">fatal_totals</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">24</span><span class="p">),</span> <span class="n">injury_prop</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;injury crash proportion&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">24</span><span class="p">),</span> <span class="n">fatal_prop</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;fatal crash proportion&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;hour&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;proportion of daily crashes&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribution of Injury and Fatal Crashes by Hour of Day&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">FIGURES_PATH</span><span class="si">}</span><span class="s2">/injury_vs_fatal_hourly.png&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/995f167580b94dc04ebd8448079254a14f72e0e4ba8f60280e7fdf9221459ea5.png" src="../_images/995f167580b94dc04ebd8448079254a14f72e0e4ba8f60280e7fdf9221459ea5.png" />
+</div>
+</div>
+<p>Interestingly, we see that fatal crashes and injury crashes do not have peaks at the same time. Injury crashes seem to occur around peak commute times, but fatal crashes are slightly offset from these peaks (earlier in the morning, and later in the afternoon). This is likely because heavy traffic jams and slow speeds make it more unlikely that a crash would result in a fatality.</p>
+<section id="comparing-daily-trends">
+<h1>Comparing Daily Trends<a class="headerlink" href="#comparing-daily-trends" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pval</span><span class="p">,</span> <span class="n">contribs</span> <span class="o">=</span> <span class="n">time_of_day</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="n">injury_crashes</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Saturday&#39;</span><span class="p">,</span> <span class="s1">&#39;Sunday&#39;</span><span class="p">],</span> <span class="n">plot_expected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">FIGURES_PATH</span><span class="si">}</span><span class="s2">/hourly_injury_saturday_vs_sunday.png&quot;</span><span class="p">)</span>
+<span class="n">pval</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.2545552084147115e-33
+</pre></div>
+</div>
+<img alt="../_images/aa810330c8995c57726e7963f7c49f757f36da020d2abdbaa1d0caad64a5f573.png" src="../_images/aa810330c8995c57726e7963f7c49f757f36da020d2abdbaa1d0caad64a5f573.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pval</span><span class="p">,</span> <span class="n">contribs</span> <span class="o">=</span> <span class="n">time_of_day</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="n">injury_crashes</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Tuesday&#39;</span><span class="p">,</span> <span class="s1">&#39;Wednesday&#39;</span><span class="p">],</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">FIGURES_PATH</span><span class="si">}</span><span class="s2">/hourly_injury_tuesday_vs_wednesday.png&quot;</span><span class="p">)</span>
+<span class="n">pval</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.07740914208619751
+</pre></div>
+</div>
+<img alt="../_images/e29e68e84a03431480474464d94e8074de5d71fada5f9d02d386bd7ff05144b4.png" src="../_images/e29e68e84a03431480474464d94e8074de5d71fada5f9d02d386bd7ff05144b4.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pval</span><span class="p">,</span> <span class="n">contribs</span> <span class="o">=</span> <span class="n">time_of_day</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="n">injury_crashes</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Tuesday&#39;</span><span class="p">,</span> <span class="s1">&#39;Thursday&#39;</span><span class="p">],</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">pval</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.74202088431147e-08
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pval</span><span class="p">,</span> <span class="n">contribs</span> <span class="o">=</span> <span class="n">time_of_day</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="n">fatal_crashes</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Tuesday&#39;</span><span class="p">,</span> <span class="s1">&#39;Wednesday&#39;</span><span class="p">],</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">pval</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.28681278335892824
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pval</span><span class="p">,</span> <span class="n">contribs</span> <span class="o">=</span> <span class="n">time_of_day</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="n">fatal_crashes</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Saturday&#39;</span><span class="p">,</span> <span class="s1">&#39;Wednesday&#39;</span><span class="p">],</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">FIGURES_PATH</span><span class="si">}</span><span class="s2">/hourly_fatal_saturday_vs_wednesday.png&quot;</span><span class="p">)</span>
+<span class="n">pval</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.013920716971079557
+</pre></div>
+</div>
+<img alt="../_images/83cd7e5a4bb2728cb50e92117228ab0f715bb27713d7c40705edc9fecf24af24.png" src="../_images/83cd7e5a4bb2728cb50e92117228ab0f715bb27713d7c40705edc9fecf24af24.png" />
+</div>
+</div>
+<p>We used a Chi-Square test to compare crash patterns as a function of time-of-day, between different days of the week. Based on the analysis above, using a significance level of <span class="math notranslate nohighlight">\(\alpha=0.05\)</span>, we find that there is a significant difference between the pattern for injury crashes on Saturday and Sunday, but not a significant difference in the pattern between Tuesday and Wednesday. We also find significant difference between Tuesday and Thursday’s patterns.</p>
+<p>For fatal crashes, we once again find no signficant difference between Tuesday and Wednesday patterns. But we do find a difference between Saturday and Wednesday. Since there are fewer fatal crashes than injury crashes, we do seem to see slightly higher p-values.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "traffic-collisions"
+        },
+        kernelOptions: {
+            name: "traffic-collisions",
+            path: "./analysis"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'traffic-collisions'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jeffrey Fan, Leah Hong, Janise Liang, and Nick Melamed (Group 27)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

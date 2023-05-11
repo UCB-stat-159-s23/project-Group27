@@ -144,7 +144,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="main.html">
-                    TITLE
+                    Analysis on California Motor Vehicle Traffic Collisions during 2019
                 </a>
             </li>
         </ul>
@@ -310,7 +310,11 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">A Study of California Motor Vehicle Traffic Collisions</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#background-and-motivation">Background and Motivation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
 </ul>
 
             </nav>
@@ -333,10 +337,31 @@ document.write(`
 <p>Motor vehicle crashes are unfortunately quite prevalent in the state of California. We were interested in determining whether or not there was a seasonality effect on car crashes based on differing periods of time (time of day, day of month, and month of year). If seasonality patterns emerged, such information could be used to inform policy-decisions (i.e., if nighttime crashes were more common, increasing nighttime driver safety on highways could be one such intervention).</p>
 <p>We utilized various statistical methods, including a Chi-Square test and Kruskal-Wallis test, to make our determinations.</p>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="data">
+<h1>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h1>
+<p>Data is sourced from <a class="reference external" href="https://www.chp.ca.gov/programs-services/services-information/switrs-internet-statewide-integrated-traffic-records-system/switrs-2019-report">https://www.chp.ca.gov/programs-services/services-information/switrs-internet-statewide-integrated-traffic-records-system/switrs-2019-report</a>. The data set was created from the Microsoft Excel spreadsheets for the different sections selected.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="analysis">
+<h1>Analysis<a class="headerlink" href="#analysis" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">main.ipynb</span></code> : main narrative notebook that summarizes all the results</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">County_Analysis.ipynb</span></code> : notebook that explores total crashes based on each county in 2019</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">day_of_month.ipynb</span></code> : notebook that explores total crashes based on the day of a month or month in a year</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">time_of_day.ipynb</span></code> : notebook that explores fatal and injury crashes based on the time of day</p></li>
+</ul>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h1>
 <p>Run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">env</span></code> in your terminal/shell to set up the conda environment.</p>
 <p>Then use resulting <code class="docutils literal notranslate"><span class="pre">traffic-collisions</span></code> kernel to run all analysis notebooks.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="testing">
+<h1>Testing<a class="headerlink" href="#testing" title="Permalink to this heading">#</a></h1>
+<p>To test the <code class="docutils literal notranslate"><span class="pre">analysis</span> <span class="pre">functions</span></code>, navigate to the root directory and run <code class="docutils literal notranslate"><span class="pre">pytest</span></code>.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="license">
+<h1>License<a class="headerlink" href="#license" title="Permalink to this heading">#</a></h1>
+<p>This project is released under the terms of the MIT License.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -390,7 +415,11 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">A Study of California Motor Vehicle Traffic Collisions</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#background-and-motivation">Background and Motivation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#license">License</a></li>
 </ul>
 
   </nav></div>
