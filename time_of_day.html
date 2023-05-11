@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'time_of_day';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -188,6 +190,37 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/UCB-stat-159-s23/project-Group27/main?labpath=main.ipynb/v2/gh/UCB-stat-159-s23/project-Group27/gh-pages?urlpath=lab/tree/time_of_day.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
 
 
 <a href="https://github.com/UCB-stat-159-s23/project-Group27" target="_blank"
@@ -511,9 +544,6 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(24, 2) 24
-</pre></div>
-</div>
 <img alt="_images/aa810330c8995c57726e7963f7c49f757f36da020d2abdbaa1d0caad64a5f573.png" src="_images/aa810330c8995c57726e7963f7c49f757f36da020d2abdbaa1d0caad64a5f573.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.2545552084147115e-33
 </pre></div>
@@ -522,29 +552,13 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pval</span><span class="p">,</span> <span class="n">contribs</span> <span class="o">=</span> <span class="n">time_of_day</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="n">injury_crashes</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Saturday&#39;</span><span class="p">,</span> <span class="s1">&#39;Sunday&#39;</span><span class="p">],</span> <span class="n">plot_expected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pval</span><span class="p">,</span> <span class="n">contribs</span> <span class="o">=</span> <span class="n">time_of_day</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="n">injury_crashes</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Tuesday&#39;</span><span class="p">,</span> <span class="s1">&#39;Wednesday&#39;</span><span class="p">],</span> <span class="kc">True</span><span class="p">)</span>
 <span class="n">pval</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(24, 2) 24
-</pre></div>
-</div>
-<img alt="_images/aa810330c8995c57726e7963f7c49f757f36da020d2abdbaa1d0caad64a5f573.png" src="_images/aa810330c8995c57726e7963f7c49f757f36da020d2abdbaa1d0caad64a5f573.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.2545552084147115e-33
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pval</span><span class="p">,</span> <span class="n">contribs</span> <span class="o">=</span> <span class="n">time_of_day</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="n">injury_crashes</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Tuesday&#39;</span><span class="p">,</span> <span class="s1">&#39;Wednesday&#39;</span><span class="p">],</span> <span class="kc">False</span><span class="p">)</span>
-<span class="n">pval</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
+<img alt="_images/e29e68e84a03431480474464d94e8074de5d71fada5f9d02d386bd7ff05144b4.png" src="_images/e29e68e84a03431480474464d94e8074de5d71fada5f9d02d386bd7ff05144b4.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.07740914208619751
 </pre></div>
 </div>
@@ -578,7 +592,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pval</span><span class="p">,</span> <span class="n">contribs</span> <span class="o">=</span> <span class="n">time_of_day</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="n">fatal_crashes</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Saturday&#39;</span><span class="p">,</span> <span class="s1">&#39;Wednesday&#39;</span><span class="p">],</span> <span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pval</span><span class="p">,</span> <span class="n">contribs</span> <span class="o">=</span> <span class="n">time_of_day</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="n">fatal_crashes</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Saturday&#39;</span><span class="p">,</span> <span class="s1">&#39;Wednesday&#39;</span><span class="p">],</span> <span class="kc">True</span><span class="p">)</span>
 <span class="n">pval</span>
 </pre></div>
 </div>
@@ -589,7 +603,8 @@ document.write(`
 </div>
 </div>
 </div>
-<p>todo: write summary of these results?</p>
+<p>We used a Chi-Square test to compare crash patterns as a function of time-of-day, between different days of the week. Based on the analysis above, using a significance level of <span class="math notranslate nohighlight">\(\alpha=0.05\)</span>, we find that there is a significant difference between the pattern for injury crashes on Saturday and Sunday, but not a significant difference in the pattern between Tuesday and Wednesday. We also find significant difference between Tuesday and Thursday’s patterns.</p>
+<p>For fatal crashes, we once again find no signficant difference between Tuesday and Wednesday patterns. But we do find a difference between Saturday and Wednesday. Since there are fewer fatal crashes than injury crashes, we do seem to see slightly higher p-values.</p>
 </section>
 
     <script type="text/x-thebe-config">
