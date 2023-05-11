@@ -25,7 +25,6 @@ def chisquare(df, cols, plot_expected=True):
     chi2, pval, dof, expected = st.chi2_contingency(contingency)
 
     if plot_expected:
-        print(expected.shape, len(expected))
         colors = cm.tab10.colors
         for i in range(len(cols)):
             color = colors[i]
