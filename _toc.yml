@@ -5,6 +5,7 @@ format: jb-book
 root: main
 parts:
   - caption: Analysis Notebooks
+    chapters:
     - file: analysis/day_of_month.ipynb
     - file: analysis/time_of_day.ipynb
     - file: analysis/by_county.ipynb
