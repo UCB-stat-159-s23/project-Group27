@@ -11,11 +11,12 @@ Motor vehicle crashes are unfortunately quite prevalent in the state of Californ
 We utilized various statistical methods, including a Chi-Square test and Kruskal-Wallis test, to make our determinations. 
 
 # Data
+Data is sourced from https://www.chp.ca.gov/programs-services/services-information/switrs-internet-statewide-integrated-traffic-records-system/switrs-2019-report. The data set was created from the Microsoft Excel spreadsheets for the different sections selected. 
 
 # Analysis
 
 - `main.ipynb` : main narrative notebook that summarizes all the results
-- `County_Analysis.ipynb` : notebook that explores (total) crashes based on each county in 2019
+- `County_Analysis.ipynb` : notebook that explores total crashes based on each county in 2019
 - `day_of_month.ipynb` : notebook that explores total crashes based on the day of a month or month in a year
 - `time_of_day.ipynb` : notebook that explores fatal and injury crashes based on the time of day
 
