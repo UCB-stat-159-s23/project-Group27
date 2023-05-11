@@ -7,14 +7,12 @@ env :
 	conda env create -f environment.yml
 	conda activate traffic-collisions
 	conda install ipykernel
-	python -m ipykernel install --user --name make-env --display-name "IPython - traffic-collisions"
+	python -m ipykernel install --user --name traffic-collisions --display-name "IPython - traffic-collisions"
     
 .PHONY : all
 all :
-	jupyterbook execute main.ipynb
-	jupyterbook execute day_of_month.ipynb
-	jupyterbook execute time_of_day.ipynb
+	jupyter execute *.ipynb --kernel_name=traffic-collisions
 
 .PHONY : html
 html :
-	jupyterbook build .
+	jupyter-book build .
