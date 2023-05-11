@@ -3,7 +3,7 @@
 
 format: jb-book
 root: main
-# chapters:
-# - file: markdown
-# - file: notebooks
-# - file: markdown-notebooks
+chapters:
+- file: analysis/day_of_month.ipynb
+- file: analysis/time_of_day.ipynb
+- file: analysis/by_county.ipynb
