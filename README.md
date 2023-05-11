@@ -25,3 +25,9 @@ Data is sourced from https://www.chp.ca.gov/programs-services/services-informati
 Run `make env` in your terminal/shell to set up the conda environment.
 
 Then use resulting `traffic-collisions` kernel to run all analysis notebooks.
+
+# Testing
+
+To test the analysis/test functions, navigate to the root directory and run pytest.
+
+# License
