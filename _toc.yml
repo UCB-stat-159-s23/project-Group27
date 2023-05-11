@@ -3,7 +3,7 @@
 
 format: jb-book
 root: main
-chapters:
+parts:
   - caption: Analysis Notebooks
     - file: analysis/day_of_month.ipynb
     - file: analysis/time_of_day.ipynb
