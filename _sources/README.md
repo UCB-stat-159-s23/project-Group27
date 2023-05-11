@@ -16,9 +16,9 @@ Data is sourced from https://www.chp.ca.gov/programs-services/services-informati
 # Analysis
 
 - `main.ipynb` : main narrative notebook that summarizes all the results
-- `County_Analysis.ipynb` : notebook that explores total crashes based on each county in 2019
-- `day_of_month.ipynb` : notebook that explores total crashes based on the day of a month or month in a year
-- `time_of_day.ipynb` : notebook that explores fatal and injury crashes based on the time of day
+- `analysis/by_county.ipynb` : notebook that explores total crashes based on each county in 2019
+- `analysis/day_of_month.ipynb` : notebook that explores total crashes based on the day of a month or month in a year
+- `analysis/time_of_day.ipynb` : notebook that explores fatal and injury crashes based on the time of day
 
 # Installation
 
