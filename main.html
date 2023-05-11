@@ -348,6 +348,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-1-do-the-number-of-car-crashes-in-california-differ-by-day-of-month">Section 1: Do the Number of Car Crashes in California Differ by Day of Month?</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">Motivation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#some-initial-attempt-to-visualize">1.1 Some initial attempt to visualize</a></li>
@@ -360,10 +361,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-daily-trends">Comparing Daily Trends</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Conclusions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-geographical-factor-analysis-locations-population">Section 3: Geographical Factor Analysis - Locations &amp; Population</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#collision-count-by-county">3.1 Collision Count by County</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#collision-frequency-by-county">3.2 Collision Frequency by County</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3.2 Collision Frequency by County</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.2 Collision Frequency by County</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-4-alcohol">Section 4: Alcohol</a></li>
@@ -402,6 +404,10 @@ document.write(`
 </div>
 </div>
 </div>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<p>This study analyzes the potential trends in car collision to inform further research. We are interested to see if different factors such as day of month, time of day, location, and population each has impact on the count, frequency, and extent to which traffic collisions happen. The data used is from the California Highway Patrol SWITRS 2019 Report on Fatal and Injury Motor Vehicle Traffic Collisions. The dataset contains a variety of information and we will only be working with a selected subset of it. For information about the complete dataset, please refer to this <a class="reference external" href="https://www.chp.ca.gov/programs-services/services-information/switrs-internet-statewide-integrated-traffic-records-system/switrs-2019-report">LINK</a>.</p>
+</section>
 <section id="section-1-do-the-number-of-car-crashes-in-california-differ-by-day-of-month">
 <h2>Section 1: Do the Number of Car Crashes in California Differ by Day of Month?<a class="headerlink" href="#section-1-do-the-number-of-car-crashes-in-california-differ-by-day-of-month" title="Permalink to this heading">#</a></h2>
 <section id="motivation">
@@ -464,6 +470,7 @@ document.write(`
 </section>
 <section id="section-2-do-the-number-of-car-crashes-in-california-differ-by-time-of-day">
 <h2>Section 2: Do the Number of Car Crashes in California Differ by Time of Day?<a class="headerlink" href="#section-2-do-the-number-of-car-crashes-in-california-differ-by-time-of-day" title="Permalink to this heading">#</a></h2>
+<p>We wanted to examine the effects of time on the number of car crashes in California. First, we analyze the data by hour of day to see if there are common trends that we can see for the number of fatal crashes. We will also look at the injury crashes based on the hour of day and day of week. It would be unsurprising to see peaks during certain hours of the day due to environmental circumstances. Let us first see what hours of the day may lead to more crashes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;figures/avg_fatal_crashes_by_hour.png&quot;</span><span class="p">)</span>
@@ -474,8 +481,9 @@ document.write(`
 <img alt="_images/f78d65f1e0adef8b1732e6ce64f7c19cbe13d5d1c70e5fd344d7b0bd801aaaed.png" src="_images/f78d65f1e0adef8b1732e6ce64f7c19cbe13d5d1c70e5fd344d7b0bd801aaaed.png" />
 </div>
 </div>
-<p>Looking at the graph above, we see that the peak number of fatal crashes is late at night near 9:00 PM, which could be the result of reckless driving during the night when people may have a harder time seeing.</p>
-<p>The lowest peak in the graph lies around 9:00 AM, which could be the result of traffic jams where people are unable to drive recklessly.</p>
+<p>Looking at the graph above, we see that the peak number of fatal crashes is late at night near 9:00 PM, which could be the result of reckless driving during the night when people may have a harder time seeing, excessive speeding, or drowsy driving.</p>
+<p>The lowest peak in the graph lies around 9:00 AM, which could be the result of traffic jams where people are unable to drive recklessly or quickly. Therefore, the number of injury crashes could be higher than the number of fatal crashes.</p>
+<p>Now, we will look at the number of injury crashes by hour of day and day of week. We may see similar patterns in the graph with the number of fatal crashes for the hour of day. This could be the result of the aforementioned conditions where there is more reckless driving during the night. As for the day of the week, there could be less injury crashes on the weekend as people may be less tired from waking up early or driving back late from work.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;figures/injury_crashes_by_hour_and_day_of_week.png&quot;</span><span class="p">)</span>
@@ -501,6 +509,8 @@ document.write(`
 <p>Interestingly, we see that fatal crashes and injury crashes do not have peaks at the same time. Injury crashes seem to occur around peak commute times, but fatal crashes are slightly offset from these peaks (earlier in the morning, and later in the afternoon). This is likely because heavy traffic jams and slow speeds make it more unlikely that a crash would result in a fatality.</p>
 <section id="comparing-daily-trends">
 <h3>Comparing Daily Trends<a class="headerlink" href="#comparing-daily-trends" title="Permalink to this heading">#</a></h3>
+<p>We will now use a Chi-Square test to compare crash patterns as a function of time-of-day, between different days of the week.</p>
+<p>First, we will look at the injury crashes on Saturday and Sunday as well as Tuesday and Wednesday to see if there is a large difference in patterns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;figures/hourly_injury_saturday_vs_sunday.png&quot;</span><span class="p">)</span>
@@ -521,6 +531,7 @@ document.write(`
 <img alt="_images/96c5925ebaafd83589868bacb693a69042472183c0c58e6d6851fd88bfe8747e.png" src="_images/96c5925ebaafd83589868bacb693a69042472183c0c58e6d6851fd88bfe8747e.png" />
 </div>
 </div>
+<p>We can clearly see that there is a difference between the pattern of injury crashes on Saturday and Sunday. And from the graph right above, there does not seem to be a significant difference between the pattern for injury crashes on Tuesday and Wednesday.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;figures/hourly_fatal_saturday_vs_wednesday.png&quot;</span><span class="p">)</span>
@@ -531,9 +542,14 @@ document.write(`
 <img alt="_images/c4669094369b4fadb88ae2d15d197bc541f1baaa89f5ab2c5fe32ee2ae1b7c05.png" src="_images/c4669094369b4fadb88ae2d15d197bc541f1baaa89f5ab2c5fe32ee2ae1b7c05.png" />
 </div>
 </div>
-<p>We used a Chi-Square test to compare crash patterns as a function of time-of-day, between different days of the week. Based on the analysis above, using a significance level of <span class="math notranslate nohighlight">\(\alpha=0.05\)</span>, we find that there is a significant difference between the pattern for injury crashes on Saturday and Sunday, but not a significant difference in the pattern between Tuesday and Wednesday. We also find significant difference between Tuesday and Thursday’s patterns.</p>
-<p>For fatal crashes, we once again find no signficant difference between Tuesday and Wednesday patterns. But we do find a difference between Saturday and Wednesday. Since there are fewer fatal crashes than injury crashes, we do seem to see slightly higher p-values.</p>
+<p>Looking at Wednesday and Saturday’s patterns, we see that there is a significant difference.</p>
 </section>
+</section>
+<section id="id1">
+<h2>Conclusions<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>Based on the hour of day analysis, we see that there is a common trend of high peaks of fatal crashes during the nighttime. However, for injury crashes, the cases seem to lie around traffic hour times. We can see this clearly through the Distribution of Injury and Fatal Crashes by Hour of Day.</p>
+<p>Based on the following analysis above, using a significance level of <span class="math notranslate nohighlight">\(\alpha=0.05\)</span>, we find that there is a significant difference between the pattern for injury crashes on Saturday and Sunday, but not a significant difference in the pattern between Tuesday and Wednesday. We also find significant difference between Tuesday and Thursday’s patterns.</p>
+<p>For fatal crashes, we once again find no signficant difference between Tuesday and Wednesday patterns. But we do find a difference between Saturday and Wednesday. Since there are fewer fatal crashes than injury crashes, we do seem to see slightly higher p-values.</p>
 </section>
 <section id="section-3-geographical-factor-analysis-locations-population">
 <h2>Section 3: Geographical Factor Analysis - Locations &amp; Population<a class="headerlink" href="#section-3-geographical-factor-analysis-locations-population" title="Permalink to this heading">#</a></h2>
@@ -905,8 +921,8 @@ if (outputEl) {{
 </div>
 <p>In fact, we can see that population and collision frequency are negatively correlated, which is the exact opposite of what we initially expected! We would naturally think more densely populated area will have higher chance of collisions but apparently this is not the case. One of the possible explanation of this phenomenon could be that in densely populated regions people are forced to drive slower while in sparsely populated areas people will drive more recklessly because there are less cars on the road.</p>
 </section>
-<section id="id1">
-<h3>3.2 Collision Frequency by County<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<section id="id2">
+<h3>3.2 Collision Frequency by County<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <p>Following up on the collision frequency of each county, we decided to further examined how population relates to how fatal the collisions are. Below is a third choroplethmap on the fatal rate of collision in each county, where the <strong>fatal rate is calculated by dividing the number of people killed in collision in each county by the total number of collisions that happened in the county</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -978,8 +994,8 @@ if (outputEl) {{
 <section id="author-contributions">
 <h2>Author Contributions<a class="headerlink" href="#author-contributions" title="Permalink to this heading">#</a></h2>
 <p>Nick: Completed day_of_month analysis, made utils and testing files for both day_of_month and time_of_day analysis, wrote part of README, wrote part of environment.yml</p>
-<p>Leah: created and completed the makefile, wrote part of README and day_of_month analysis
-Jeffrey: created county and alcohol analysis, compiled the main notebook</p>
+<p>Leah: created and completed the Makefile, wrote part of the README, wrote part of the day_of_month analysis, and added transitions/descriptions to Section 2 of the main notebook</p>
+<p>Jeffrey: created county and alcohol analysis, compiled the main notebook</p>
 </section>
 <div class="toctree-wrapper compound">
 </div>
@@ -1043,6 +1059,7 @@ Jeffrey: created county and alcohol analysis, compiled the main notebook</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-1-do-the-number-of-car-crashes-in-california-differ-by-day-of-month">Section 1: Do the Number of Car Crashes in California Differ by Day of Month?</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">Motivation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#some-initial-attempt-to-visualize">1.1 Some initial attempt to visualize</a></li>
@@ -1055,10 +1072,11 @@ Jeffrey: created county and alcohol analysis, compiled the main notebook</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-daily-trends">Comparing Daily Trends</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Conclusions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-geographical-factor-analysis-locations-population">Section 3: Geographical Factor Analysis - Locations &amp; Population</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#collision-count-by-county">3.1 Collision Count by County</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#collision-frequency-by-county">3.2 Collision Frequency by County</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3.2 Collision Frequency by County</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.2 Collision Frequency by County</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-4-alcohol">Section 4: Alcohol</a></li>
