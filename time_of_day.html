@@ -316,23 +316,9 @@ document.write(`
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">st</span>
 
-<span class="c1"># our own package </span>
-
+<span class="c1"># our own package</span>
 <span class="kn">from</span> <span class="nn">analysis</span> <span class="kn">import</span> <span class="n">time_of_day</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
 </pre></div>
 </div>
 </div>
@@ -525,7 +511,27 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2aaffc17b39bedb327926f796d80c95547db67c566c0ef76b3774a4517eafc66.png" src="_images/2aaffc17b39bedb327926f796d80c95547db67c566c0ef76b3774a4517eafc66.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(24, 2) 24
+</pre></div>
+</div>
+<img alt="_images/aa810330c8995c57726e7963f7c49f757f36da020d2abdbaa1d0caad64a5f573.png" src="_images/aa810330c8995c57726e7963f7c49f757f36da020d2abdbaa1d0caad64a5f573.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.2545552084147115e-33
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pval</span><span class="p">,</span> <span class="n">contribs</span> <span class="o">=</span> <span class="n">time_of_day</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="n">injury_crashes</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Saturday&#39;</span><span class="p">,</span> <span class="s1">&#39;Sunday&#39;</span><span class="p">],</span> <span class="n">plot_expected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">pval</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(24, 2) 24
+</pre></div>
+</div>
+<img alt="_images/aa810330c8995c57726e7963f7c49f757f36da020d2abdbaa1d0caad64a5f573.png" src="_images/aa810330c8995c57726e7963f7c49f757f36da020d2abdbaa1d0caad64a5f573.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.2545552084147115e-33
 </pre></div>
 </div>
@@ -595,16 +601,16 @@ document.write(`
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "make-env"
         },
         kernelOptions: {
-            name: "python3",
+            name: "make-env",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'make-env'</script>
 
                 </article>
               
