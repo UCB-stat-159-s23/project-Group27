@@ -29,11 +29,3 @@ html:
 launch_buttons:
   notebook_interface        : jupyterlab
   binderhub_url             : https://mybinder.org/v2/gh/UCB-stat-159-s23/project-Group27/main?labpath=main.ipynb
-
-# Add a bibtex file so that we can create citations
-bibtex_bibfiles:
-  - references.bib
-
-sphinx:
-  config:
-    bibtex_reference_style: author_year
