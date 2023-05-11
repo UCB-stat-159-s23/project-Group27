@@ -28,6 +28,6 @@ Then use resulting `traffic-collisions` kernel to run all analysis notebooks.
 
 # Testing
 
-To test the analysis/test functions, navigate to the root directory and run pytest.
+To test the `analysis functions`, navigate to the root directory and run `pytest`.
 
 # License
